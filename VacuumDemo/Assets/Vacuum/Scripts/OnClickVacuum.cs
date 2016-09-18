@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.HUD
+namespace Assets.Vacuum.Scripts
 {
-    public class MouseShader : MonoBehaviour
+    public class OnClickVacuum : MonoBehaviour
     {
         public Vector2 LockedPosition = Vector3.zero;
         public void Update()
@@ -16,7 +12,7 @@ namespace Assets.Scripts.HUD
                 transform.GetComponent<Animator>().SetTrigger("Triggered");
            }
 
-            transform.position = Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(15);
+            transform.position = Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(9);
         }
     }
 }
