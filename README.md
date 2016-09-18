@@ -5,4 +5,6 @@ This is a shader that pulls the pixels in a radius around a point toward the cen
 
 The final effect should look something like this : 
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="wjhtSmW"><a href="//imgur.com/wjhtSmW">Vacuum Shader</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+<p align="center">
+  <img src="https://media.giphy.com/media/3o7TKovR0Q9mLGdGkE/giphy.gif" width="350"/>
+</p>
