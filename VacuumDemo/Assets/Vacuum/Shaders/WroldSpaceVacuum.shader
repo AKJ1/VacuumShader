@@ -60,9 +60,20 @@
 
 				float2 dir = i.uv - (0.5, 0.5);
 
-				i.grabuv.xy = i.grabuv.xy + clamp(dir * float2(1,-1) * (dst * stp) * _Strength, -i.grabuv.xy *.5, i.grabuv.xy *.5);				
+				float4 wantedUv = i.grabuv; 
 
-				fixed4 col = tex2Dproj(_MainTex, i.grabuv);
+				wantedUv.xy = i.grabuv.xy + clamp(dir * float2(1,-1) * ((.5-dst) * stp) * _Strength, -i.grabuv.xy, i.grabuv.xy);				
+				
+				fixed4 col = tex2Dproj(_MainTex, wantedUv);
+
+				//blur the pixels
+				int iterations = 10;
+				for(int cnt = 0; cnt < iterations; cnt++)
+				{
+					col +=tex2Dproj(_MainTex, lerp(i.grabuv, wantedUv, (1.0/iterations) * cnt));
+				}
+
+				col = col/(iterations + 1);
 				
 				// just invert the colors
 				return col;
