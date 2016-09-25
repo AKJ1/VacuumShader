@@ -67,7 +67,7 @@
 				fixed4 col = tex2Dproj(_MainTex, wantedUv);
 
 				//blur the pixels
-				int iterations = 10;
+				int iterations = 25;
 				for(int cnt = 0; cnt < iterations; cnt++)
 				{
 					col +=tex2Dproj(_MainTex, lerp(i.grabuv, wantedUv, (1.0/iterations) * cnt));
